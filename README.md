@@ -14,18 +14,12 @@ Customizable curvature combs:
 
 ## Installation
 
-[![JitPack Release](https://jitpack.io/v/Kyant0/Capsule.svg)](https://jitpack.io/#Kyant0/Capsule)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kyant0/capsule)](https://central.sonatype.com/artifact/io.github.kyant0/capsule)
+
+In build.gradle.kts, add
 
 ```kotlin
-// settings.gradle.kts in root project
-dependencyResolutionManagement {
-    repositories {
-        maven("https://jitpack.io")
-    }
-}
-
-// build.gradle.kts in module
-implementation("com.github.Kyant0:Capsule:<version>")
+implementation("io.github.kyant0:capsule:<version>")
 ```
 
 ## Usages
