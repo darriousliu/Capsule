@@ -1,7 +1,35 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose.multiplatform)
+}
+
+kotlin {
+    jvmToolchain(21)
+    androidTarget()
+    jvm()
+    iosArm64()
+    iosSimulatorArm64()
+    iosX64()
+    wasmJs {
+        browser()
+    }
+    js {
+        browser()
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(project(":capsule"))
+            implementation(compose.foundation)
+            implementation(compose.ui)
+            implementation(compose.material3)
+        }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+        }
+    }
 }
 
 android {
@@ -27,6 +55,7 @@ android {
             vcsInfo.include = false
         }
     }
+
     buildFeatures {
         compose = true
     }
@@ -54,10 +83,6 @@ android {
     lint {
         checkReleaseBuilds = false
     }
-}
-
-kotlin {
-    jvmToolchain(21)
 }
 
 dependencies {
