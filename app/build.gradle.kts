@@ -6,12 +6,14 @@ plugins {
 
 android {
     namespace = "com.kyant.capsule.demo"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
     buildToolsVersion = "36.1.0"
 
     defaultConfig {
         applicationId = "com.kyant.capsule.demo"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
@@ -25,17 +27,11 @@ android {
             vcsInfo.include = false
         }
     }
-    kotlin {
-        jvmToolchain(21)
-    }
     buildFeatures {
         compose = true
     }
     packaging {
         resources {
-            pickFirsts += arrayOf(
-                "META-INF/androidx.compose.ui_ui.version"
-            )
             excludes += arrayOf(
                 "DebugProbesKt.bin",
                 "kotlin-tooling-metadata.json",
@@ -59,12 +55,15 @@ android {
         checkReleaseBuilds = false
     }
 }
+kotlin {
+    jvmToolchain(21)
+}
 
 dependencies {
-    implementation(project(":capsule"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.runtime)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
+    implementation(project(":capsule"))
 }

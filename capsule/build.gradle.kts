@@ -7,7 +7,9 @@ plugins {
 
 android {
     namespace = "com.kyant.capsule"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
     buildToolsVersion = "36.1.0"
 
     defaultConfig {
@@ -22,12 +24,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    kotlin {
-        jvmToolchain(21)
-    }
     buildFeatures {
         compose = true
     }
+}
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies {
