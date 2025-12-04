@@ -42,7 +42,7 @@ mavenPublishing {
     publishToMavenCentral()
     signAllPublications()
 
-    coordinates("io.github.kyant0", "capsule", "2.1.1")
+    coordinates("io.github.kyant0", "capsule", "2.1.2")
 
     pom {
         name.set("Capsule")

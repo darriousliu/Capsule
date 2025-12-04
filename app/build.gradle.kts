@@ -55,6 +55,7 @@ android {
         checkReleaseBuilds = false
     }
 }
+
 kotlin {
     jvmToolchain(21)
 }
