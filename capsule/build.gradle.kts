@@ -28,6 +28,7 @@ android {
         compose = true
     }
 }
+
 kotlin {
     jvmToolchain(21)
 }
